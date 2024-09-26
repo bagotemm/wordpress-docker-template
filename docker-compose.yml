@@ -1,0 +1,29 @@
+services:
+  db:
+    image: mariadb:10.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=wp
+      - MYSQL_DATABASE=wp
+      - MYSQL_USER=wp
+      - MYSQL_PASSWORD=wp
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wp
+      - WORDPRESS_DB_PASSWORD=wp
+      - WORDPRESS_DB_NAME=wp
+
+volumes:
+  db_data:
