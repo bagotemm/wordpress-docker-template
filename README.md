@@ -16,9 +16,6 @@ During first launch, you need to wait until all files are being copied to ```/va
 This container's directory is synced with your local ```src``` directory.
 
 Once is done, not only could you browser on http://localhost:8080 but you could also delete ```src/delete-me``` file.
-## Testing
-
-Use [Bruno](https://www.usebruno.com/) to launch collection of test that are in collections directory.
 
 ## Database informations
 - Host : localhost (on local) / db (in docker compose network)
